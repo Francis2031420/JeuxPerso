@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - Weapon
+  - Ennemie
+  - Balle
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - UI
   - Player
   - BrasGauche
-  - 
+  - Ennemie
   - 
   - 
   - 
