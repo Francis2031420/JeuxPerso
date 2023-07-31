@@ -7,13 +7,26 @@ using UnityEngine;
 public class FindPlayer : MonoBehaviour
 {
     [SerializeField]
-    float speed = 10f;
+    float trackingSpeed = 10f;
 
     bool trackPlayer = false;
+
+    public bool isTracking
+    {
+        get { return trackPlayer; }
+    }
+    [SerializeField]
     GameObject player;
+
+    public GameObject playerPrefab
+    {
+        get { return player; }
+    }
+
     void Awake()
     {
         player = GameObject.FindWithTag("Player");
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,18 +35,18 @@ public class FindPlayer : MonoBehaviour
         {
             trackPlayer = true;
         }
+        
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
         if(trackPlayer)
         {
             while (Vector2.Distance(transform.position, player.transform.position) >= 1f)
             {
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * 5 * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, trackingSpeed * 5 * Time.deltaTime);
             }
         }
 
